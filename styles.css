@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2c3e50; /* Dark greyish background */
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.left-section, .right-section {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.left-section {
+    border-right: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.circle {
+    width: 150px;
+    height: 150px;
+    background-color: #87CEEB;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.circle:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.wire {
+    width: 4px;
+    height: 100vh;
+    background: repeating-linear-gradient(
+        45deg,
+        #fff,
+        #fff 10px,
+        #e0e0e0 10px,
+        #e0e0e0 20px
+    );
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.wire::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+        rgba(255,255,255,0.1) 0%,
+        rgba(255,255,255,0.3) 50%,
+        rgba(255,255,255,0.1) 100%
+    );
+    border-radius: 2px;
+}
+
+.name-input-container {
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.name-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transform-origin: top;
+    transition: all 0.3s ease;
+}
+
+.name-box:hover {
+    transform: scale(1.05);
+}
+
+.name-input {
+    width: 200px;
+    padding: 10px;
+    border: 2px solid #87CEEB;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.name-input:focus {
+    border-color: #2c3e50;
+}
+
+@keyframes ropeSwing {
+    0% {
+        transform: translate(-50%, -50%) translateY(100px) rotate(0deg);
+    }
+    25% {
+        transform: translate(-50%, -50%) translateY(100px) rotate(10deg) 
+                   translateX(5px) skewX(5deg);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(100px) rotate(0deg)
+                   translateX(0) skewX(0deg);
+    }
+    75% {
+        transform: translate(-50%, -50%) translateY(100px) rotate(-10deg)
+                   translateX(-5px) skewX(-5deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) translateY(100px) rotate(0deg)
+                   translateX(0) skewX(0deg);
+    }
+}
+
+.entry-options {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 400px;
+    position: relative;
+    z-index: 2;
+}
+
+.entry-box {
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 30px;
+    text-align: center;
+}
+
+.entry-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.entry-box i {
+    font-size: 60px;
+    margin-bottom: 25px;
+    color: #87CEEB;
+}
+
+.entry-box h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.entry-box p {
+    color: #666;
+    font-size: 18px;
+    line-height: 1.5;
+}
